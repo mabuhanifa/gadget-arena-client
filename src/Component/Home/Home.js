@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 const Home = () => {
     const[users,setUsers] = useState([]);
     useEffect(() => {
@@ -31,9 +32,12 @@ const Home = () => {
             <h2>
                 available user {users.length}
             </h2>
-            <ul>
-
-                {users.map(user => <li>{user.name} -  {user.email} <button onClick={()=> deleteData(user._id)}>x</button></li>)}
+            <ul>{users.map(user => <li
+                    key={user._id}
+                    >{user.name}:: {user.email}
+                    <Link to={`/update/${user._id}`}><button>Update</button></Link>
+                    <button onClick={() => deleteData(user._id)}>X</button>
+                    </li>)}
             </ul>
         </div>
     );

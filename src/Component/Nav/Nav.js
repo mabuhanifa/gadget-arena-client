@@ -7,11 +7,11 @@ const Nav = () => {
         <div className='main'>
             <div>Gadget Arena</div>
             <nav className='nav-items'>
-                <Link href="/">Home</Link>
-                <Link href="/inventories">Inventories</Link>
-                <Link href="/blogs">Blogs</Link>
-                <Link href="/items">My Items</Link>
-                <Link href="/login">Update</Link>
+                <Link to="/">Home</Link>
+                <Link to="/inventories">Inventories</Link>
+                <Link to="/blogs">Blogs</Link>
+                <Link to="/items">My Items</Link>
+                <Link to="/login">Login</Link>
             </nav>
             <div>User</div>
         </div>

@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Login = () => {
+const Items = () => {
     return (
         <div>
-            login
-            
+            hi items
         </div>
     );
 };
 
-export default Login;
+export default Items;
