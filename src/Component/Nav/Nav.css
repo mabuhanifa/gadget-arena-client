@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0px;
+}
+.nav-items {
+  display: flex;
+  margin-left: 20px;
+}
+
+.nav-items a {
+  text-decoration: none;
+  margin-left: 20px;
+}
