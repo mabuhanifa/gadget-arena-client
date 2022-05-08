@@ -32,13 +32,6 @@ const Home = () => {
             <h2>
                 available user {users.length}
             </h2>
-            {/* <ul>{users.map(user => <li
-                    key={user._id}
-                    >{user.name}:: {user.email}
-                    <Link to={`/update/${user._id}`}><button>Update</button></Link>
-                    <button onClick={() => deleteData(user._id)}>X</button>
-                    </li>)}
-            </ul> */}
             <table className="table table-striped">
   <thead>
     <tr>

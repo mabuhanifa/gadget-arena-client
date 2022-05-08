@@ -1,7 +1,10 @@
 .update-form {
-  width: 1000px;
+  width: 500px;
   display: block;
-  margin: 50px auto;
+  margin: 20px auto;
+}
+.title {
+  margin-top: 20px;
 }
 form input {
   border: 1px solid rgb(160, 160, 160);
@@ -19,4 +22,25 @@ form input {
   outline: none;
   background-color: rgb(76, 76, 255);
   border-radius: 5px;
+}
+.i-btn:hover {
+  background-color: rgb(0, 0, 175);
+}
+.d-btn {
+  position: relative;
+  padding: 5px 15px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: rgb(0, 174, 255);
+  border-radius: 5px;
+}
+.d-btn:hover {
+  background-color: rgb(0, 78, 114);
+}
+.about {
+  margin: 50px auto;
+}
+.restock {
+  margin-top: 10px;
 }
