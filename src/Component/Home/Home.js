@@ -9,8 +9,8 @@ const Home = () => {
             setUsers(data);
         });
     },[]);
-    const deleteData = (id) => {
-        const proceed = window.confirm('Are you sure you want to delete this user?');
+    const deleteItem = (id) => {
+        const proceed = window.confirm('Are you sure you want to delete this item?');
         if(proceed){
             const url = `http://localhost:5000/user/${id}`;
             fetch(url, {
@@ -43,9 +43,12 @@ const Home = () => {
   <thead>
     <tr>
       <th scope="col">Product Name</th>
-      <th scope="col">Price</th>
+      <th scope="col">Email</th>
       <th scope="col">Supplier</th>
+      <th scope="col">Price</th>
       <th scope="col">Quantity</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   {/* <tbody>
@@ -60,8 +63,11 @@ const Home = () => {
   {users.map(user => <tr key={user._id}>
                     <td>{user.name}</td> 
                     <td>{user.email}</td>
+                    <td>{user.supplier}</td>
+                    <td>{user.price}</td>
+                    <td>{user.quantity}</td>
                     <td><Link to={`/update/${user._id}`}><button className='btn btn-primary'>Update</button></Link></td>
-                    <td><button className='btn btn-danger' onClick={() => deleteData(user._id)}> Delete</button></td>
+                    <td><button className='btn btn-danger' onClick={() => deleteItem(user._id)}> Delete</button></td>
                     </tr>)}
   </tbody>
 </table>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import './UpdateItems.css';
 const UpdateItems = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
@@ -8,14 +9,18 @@ const UpdateItems = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setUser(data));
+      console.log(user.name);
   }, []);
 
-  const handleUpdateUser = (event) => {
+  const UpdateItem = (event) => {
     event.preventDefault();
-    const name = event.target.name.value;
-    const email = event.target.email.value;
+        const name = event.target.name.value;
+        const price = event.target.price.value;
+        const email = event.target.email.value;
+        const supplier = event.target.supplier.value;
+        const quantity= event.target.quantity.value;
 
-    const updatedUser = { name, email };
+    const updatedItem = { name,price, email,supplier,quantity };
 
     // send data to the server
     const url = `http://localhost:5000/user/${id}`;
@@ -24,7 +29,7 @@ const UpdateItems = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(updatedUser),
+      body: JSON.stringify(updatedItem),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -35,13 +40,20 @@ const UpdateItems = () => {
   };
   return (
     <div>
-      <h2>Updating User: {user.name}</h2>
-      <form onSubmit={handleUpdateUser}>
-        <input type="text" name="name" placeholder="Name" required />
-        <br />
-        <input type="email" name="email" placeholder="Email" required />
-        <br />
-        <input type="submit" value="Update User" />
+      <h2 className="text-center">Updating Item : {user.name}</h2>
+      <form className="update-form" onSubmit={UpdateItem}>
+      <input type="text" name='name' placeholder='Name' required/>
+            <br />
+            <input type="number" name='price' placeholder='Price' required/>
+            <br />
+            <input type="number" name='quantity' placeholder='Quantity' required/>
+            <br />
+            <input type="email" name='email' placeholder='Email' required/>
+            <br />
+            <input type="text" name='supplier' placeholder='Supplier' required/>
+            <br />
+            
+        <input className="i-btn" type="submit" value="Update User" />
       </form>
     </div>
   );

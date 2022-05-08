@@ -1,0 +1,22 @@
+.update-form {
+  width: 1000px;
+  display: block;
+  margin: 50px auto;
+}
+form input {
+  border: 1px solid rgb(160, 160, 160);
+  padding: 3px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+.i-btn {
+  display: block;
+  position: relative;
+  padding: 5px 15px;
+  top: 10px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: rgb(76, 76, 255);
+  border-radius: 5px;
+}

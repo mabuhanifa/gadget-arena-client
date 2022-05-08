@@ -5,8 +5,12 @@ const AddItem = () => {
     const handleAddItem = (event) => {  
         event.preventDefault();
         const name = event.target.name.value;
+        const price = event.target.price.value;
         const email = event.target.email.value;
-        const user = {name,email};
+        const supplier = event.target.supplier.value;
+        const quantity= event.target.quantity.value;
+        
+        const user = {name,price,email,supplier,quantity};
 
         fetch('http://localhost:5000/user',{
             method: 'POST',
@@ -22,14 +26,21 @@ const AddItem = () => {
         })
     };
     return (
-        <div className='main'>
-            <h2>Please add a new user</h2>
+        <div className='w-75 d-block mx-auto'>
+            <h2>Please add a new Item</h2>
             <form onSubmit={handleAddItem} >
                 
             <input type="text" name='name' placeholder='Name' required/>
             <br />
+            <input type="number" name='price' placeholder='Price' required/>
+            <br />
+            <input type="number" name='quantity' placeholder='Quantity' required/>
+            <br />
             <input type="email" name='email' placeholder='Email' required/>
             <br />
+            <input type="text" name='supplier' placeholder='Supplier' required/>
+            <br />
+            
             <input type="submit" value={"Add User"}/>
 
             </form>
