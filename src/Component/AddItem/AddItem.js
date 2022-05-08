@@ -1,8 +1,8 @@
 import React from 'react';
-import './AddUser.css';
+import './AddItem.css';
 
-const AddUser = () => {
-    const handleAddUser = (event) => {  
+const AddItem = () => {
+    const handleAddItem = (event) => {  
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -24,7 +24,7 @@ const AddUser = () => {
     return (
         <div className='main'>
             <h2>Please add a new user</h2>
-            <form onSubmit={handleAddUser} >
+            <form onSubmit={handleAddItem} >
                 
             <input type="text" name='name' placeholder='Name' required/>
             <br />
@@ -37,4 +37,4 @@ const AddUser = () => {
     );
 };
 
-export default AddUser;
+export default AddItem;

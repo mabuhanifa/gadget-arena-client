@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import AddUser from './Component/AddUser/AddUser';
+import AddItem from './Component/AddItem/AddItem';
 import Blogs from './Component/Blogs/Blogs';
 import Home from './Component/Home/Home';
 import Items from './Component/Items/Items';
@@ -17,7 +17,7 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home></Home>} />
-        <Route path="user/add" element={<AddUser></AddUser>}></Route>
+        <Route path="user/add" element={<AddItem></AddItem>}></Route>
         <Route path='/inventories' element={<ManageInventories></ManageInventories> }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>  }></Route>
         <Route path='/items' element={<Items></Items>}></Route>
