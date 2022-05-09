@@ -16,3 +16,10 @@
 .login a {
   text-decoration: none;
 }
+.n_v a {
+  text-decoration: none;
+  margin-right: 20px;
+  background-color: rgb(72, 72, 248);
+  color: white;
+  padding: 3px 10px;
+}

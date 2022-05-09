@@ -1,4 +1,7 @@
 import React from 'react';
+import { ToastContainer } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './AddItem.css';
 
 const AddItem = () => {
@@ -9,11 +12,12 @@ const AddItem = () => {
         const email = event.target.email.value;
         const supplier = event.target.supplier.value;
         const quantity= event.target.quantity.value;
-        const img= event.target.image.value;
+        const img= event.target.img.value;
+        const info= event.target.info.value;
         
-        const user = {name,price,email,supplier,quantity,img};
+        const user = {name,price,email,supplier,quantity,img,info};
 
-        fetch('http://localhost:5000/user',{
+        fetch('https://protected-sands-09387.herokuapp.com/user',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -22,17 +26,17 @@ const AddItem = () => {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log(data);
-            alert('User added successfully');
+            
         })
         event.target.reset();
+        toast.success('Item added successfully');
     };
     return (
-        <div className='w-75 d-block mx-auto'>
-            <h2>Please add a new Item</h2>
-            <form onSubmit={handleAddItem} >
-                
-            <input type="text" name='name' placeholder='Name' required/>
+        <div className="d-block f_info ">
+            <ToastContainer />
+      <h2 className="text-center mb-5">Add New Item </h2>
+      <form className="update-form " onSubmit={handleAddItem}>
+      <input type="text" name='name' placeholder='Name' required/>
             <br />
             <input type="number" name='price' placeholder='Price' required/>
             <br />
@@ -42,12 +46,15 @@ const AddItem = () => {
             <br />
             <input type="text" name='supplier' placeholder='Supplier' required/>
             <br />
-            <input type="text" name='image' placeholder='Image' required/>
+            <input type="text" name='info' placeholder='Info' required/>
             <br />
-            <input type="submit" value={"Add User"}/>
-
-            </form>
-        </div>
+            <input type="text" name='img' placeholder='Image' required/>
+            <br />
+            
+        <input className="i-btn" type="submit" value="Add New Item" />
+      </form>
+      
+    </div>
     );
 };
 

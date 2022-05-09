@@ -14,15 +14,18 @@ const Nav = () => {
                 <Link to="/">Home</Link>
                 <Link to="/inventories">Manage Inventories</Link>
                 <Link to="/blogs">Blogs</Link>
-                <Link to="/items">My Items</Link>
                 
             </nav>
-            <div className='login'><span>{user?.displayName && user.displayName}</span>
+            <div className='login '><span>{user?.displayName && user.displayName}</span>
                 { user?.uid
-                ? 
-                <button className='btn btn-danger ms-2' onClick={()=>signOut(auth)}> SignOut </button>
-                :
+                ? <span className='n_v'>
+                <button className='btn btn-danger mx-5' onClick={()=>signOut(auth)}> SignOut </button>
+                <Link to="/items">My Item</Link>
+                <Link to="user/add">Add Item</Link>
+                 </span>
+                :<>
                 <Link to="/login">Login</Link>
+                </>
                     }</div>
         </div>
     );

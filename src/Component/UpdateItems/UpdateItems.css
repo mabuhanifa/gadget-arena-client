@@ -6,16 +6,17 @@
 .title {
   margin-top: 20px;
 }
-form input {
+.f_info input {
+  width: 100%;
   border: 1px solid rgb(160, 160, 160);
   padding: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 3px;
 }
 .i-btn {
   display: block;
   position: relative;
-  padding: 5px 15px;
+  padding: 10px 15px;
   top: 10px;
   color: white;
   border: none;
@@ -43,4 +44,8 @@ form input {
 }
 .restock {
   margin-top: 10px;
+}
+.p_info {
+  margin-top: 10px;
+  width: 100%;
 }

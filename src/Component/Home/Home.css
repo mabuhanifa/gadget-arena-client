@@ -1,3 +1,33 @@
 .p-img {
   width: 40px;
 }
+.about {
+  font-size: 20px;
+  margin-left: 20px;
+  padding: 10px;
+}
+.m_b {
+  background-color: #dee4e7;
+  border-radius: 20px;
+}
+.d_items {
+  margin-top: 50px;
+  padding: 20px;
+  width: 600px;
+  border-radius: 10px;
+  background-color: #dee4e7;
+}
+.d_items img {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+.d-all {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 25px;
+}
+.d-all a {
+  text-decoration: none;
+}

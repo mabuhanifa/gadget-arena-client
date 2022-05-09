@@ -43,6 +43,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 verifyEmail();
+                navigate('/inventories', { replace: true });
+
             })
             .catch((error) => {console.log(error)
             setPasserror(error.message);
@@ -73,7 +75,7 @@ const Login = () => {
     <div>
     <ToastContainer />
      <div onSubmit={handleSubmit} className="registration w-50 mx-auto mt-5">
-       <h2 className="text-primary">Please Login</h2>
+       <h2 className="text-primary">Please Login To Manage Inventories</h2>
        <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -95,8 +97,8 @@ const Login = () => {
         <Button className="mt-2"onClick={handlePasswordReset} variant="link">Forget Password?</Button><br />
         
         <br />
-        <Button className="mt-2 mb-5 px-5" onClick={hanldeGoogleSignIn}  type="submit"> 
-        <FcGoogle className="google" ></FcGoogle> Signin with Google </Button>
+        <Button className="mt-2 mb-5 px-5 py-2" onClick={hanldeGoogleSignIn}  type="submit"> 
+        <FcGoogle className="icon"></FcGoogle> Signin with Google </Button>
       </Form> 
      </div>
     </div>

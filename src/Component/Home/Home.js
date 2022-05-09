@@ -6,64 +6,50 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const[users,setUsers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/user')
+        fetch('https://protected-sands-09387.herokuapp.com/user')
         .then(res => res.json())
         .then(data => { 
             setUsers(data);
             setLoading(false);
         });
     },[]);
-    const deleteItem = (id) => {
-        const proceed = window.confirm('Are you sure you want to delete this item?');
-        if(proceed){
-            const url = `http://localhost:5000/user/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.deletedCount > 0){   
-                    const remaining = users.filter(user => user._id !== id);
-                    setUsers( remaining );
-                }
-            });
-        }
-        
-
-    }
+    
     return (
         <div className='container-lg'> 
                                     <div className='text-center'>{loading && <Spinner  animation="border" variant="primary" />}</div>
-            <h2>
-                available user {users.length}
-            </h2>
-            <table className="table table-striped">
-  <thead>
-    <tr>
-    <th scope="col">Iamge</th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Supplier</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Update</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-  {users.map(user => <tr key={user._id}>
-                    <td><img className='p-img' src={user.img} alt="" /></td> 
-                    <td>{user.name}</td> 
-                    <td>{user.email}</td>
-                    <td>{user.supplier}</td>
-                    <td>${user.price}</td>
-                    <td>{user.quantity}</td>
-                    <td><Link to={`/update/${user._id}`}><button className='btn btn-primary'>Update</button></Link></td>
-                    <td><button className='btn btn-danger' onClick={() => deleteItem(user._id)}> Delete</button></td>
-                    </tr>)}
-  </tbody>
-</table>
+          <div className='mt-5 d-flex p-5 m_b'>
+              <div className='mt-5'>
+                  <img src="https://i.ibb.co/LZMmM5D/samsung-memory-J8-Cfm4-W8gd8-unsplash.jpg" alt="" />
+              </div>
+              <div className='p-5 w-100 '>
+                  <h3 className='text-center'> Welcome to Gadget Arena</h3>
+                  <p className='about '>
+                      Gadget Arena is one of the largest electronic gadget importer in USA. We import all kinds of electronic gadgets from all over the world. We have a wide range of electronic gadgets from all over the world. We not only import but also export electronic gadgets to all over the world. We have one of the best product management system in the world.
+                     
 
+                  </p>
+              </div>
+              </div>
+            
+            <div className='d-all'>
+            {
+                users.slice(0,6).map(user => <div className='d_items' key={user._id}>
+
+                 <img className='d_img' src={user.img} alt="" />   
+                <div className='d-flex-column'>
+                <h6>Product Name : {user.name}</h6>
+                <p>Info : {user.info}</p>
+                <p>Price : {user.price}</p>
+                <p>Stock Quantity : {user.quantity}</p>
+                <p>Brand : {user.supplier} </p>
+                <Link to={`/inventories`}><button className='btn btn-primary d-block mx-auto'>Update this Product</button></Link>
+                </div>
+            
+
+                </div>)
+            }
+            </div>
+            
             
         </div>
     );
