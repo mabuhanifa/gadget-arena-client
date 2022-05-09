@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './Home.css';
 const Home = () => {
+    const [loading, setLoading] = useState(true);
     const[users,setUsers] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/user')
         .then(res => res.json())
         .then(data => { 
             setUsers(data);
+            setLoading(false);
         });
     },[]);
     const deleteItem = (id) => {
@@ -28,13 +32,15 @@ const Home = () => {
 
     }
     return (
-        <div className='container-lg'>
+        <div className='container-lg'> 
+                                    <div className='text-center'>{loading && <Spinner  animation="border" variant="primary" />}</div>
             <h2>
                 available user {users.length}
             </h2>
             <table className="table table-striped">
   <thead>
     <tr>
+    <th scope="col">Iamge</th>
       <th scope="col">Product Name</th>
       <th scope="col">Email</th>
       <th scope="col">Supplier</th>
@@ -44,20 +50,13 @@ const Home = () => {
       <th scope="col">Delete</th>
     </tr>
   </thead>
-  {/* <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      
-    </tr>
-  </tbody> */}
   <tbody>
   {users.map(user => <tr key={user._id}>
+                    <td><img className='p-img' src={user.img} alt="" /></td> 
                     <td>{user.name}</td> 
                     <td>{user.email}</td>
                     <td>{user.supplier}</td>
-                    <td>{user.price}</td>
+                    <td>${user.price}</td>
                     <td>{user.quantity}</td>
                     <td><Link to={`/update/${user._id}`}><button className='btn btn-primary'>Update</button></Link></td>
                     <td><button className='btn btn-danger' onClick={() => deleteItem(user._id)}> Delete</button></td>

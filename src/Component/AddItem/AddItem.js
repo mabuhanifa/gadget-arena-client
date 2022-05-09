@@ -9,8 +9,9 @@ const AddItem = () => {
         const email = event.target.email.value;
         const supplier = event.target.supplier.value;
         const quantity= event.target.quantity.value;
+        const img= event.target.image.value;
         
-        const user = {name,price,email,supplier,quantity};
+        const user = {name,price,email,supplier,quantity,img};
 
         fetch('http://localhost:5000/user',{
             method: 'POST',
@@ -24,6 +25,7 @@ const AddItem = () => {
             console.log(data);
             alert('User added successfully');
         })
+        event.target.reset();
     };
     return (
         <div className='w-75 d-block mx-auto'>
@@ -40,7 +42,8 @@ const AddItem = () => {
             <br />
             <input type="text" name='supplier' placeholder='Supplier' required/>
             <br />
-            
+            <input type="text" name='image' placeholder='Image' required/>
+            <br />
             <input type="submit" value={"Add User"}/>
 
             </form>
