@@ -34,7 +34,7 @@ const AddItem = () => {
     return (
         <div className="d-block f_info ">
             <ToastContainer />
-      <h2 className="text-center mb-5">Add New Item </h2>
+      <h2 className="text-center mb-5">Add New Item  </h2>
       <form className="update-form " onSubmit={handleAddItem}>
       <input type="text" name='name' placeholder='Name' required/>
             <br />
