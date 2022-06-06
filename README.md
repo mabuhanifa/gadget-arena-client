@@ -1,4 +1,4 @@
-# [SnapMaster Live Websit](https://mern-assignment-01.web.app/)
+# [Gadget Arena Live Websit](https://mern-assignment-01.web.app/)
 
 ## [Server-Side Code link](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-mabuhanifa)
 
