@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { auth } from "../../firebase.init";
 import './Login.css';
 
+
 const Login = () => {
     const [signInWithGoogle,user ] = useSignInWithGoogle(auth);
     const [email, setEmail] = useState("");
@@ -72,10 +73,10 @@ const Login = () => {
     
     return (
     <>
-    <div>
+    <div className="w-50 mx-auto mt-5 l_g_f">
     <ToastContainer />
-     <div onSubmit={handleSubmit} className="registration w-50 mx-auto mt-5">
-       <h2 className="text-primary">Please Login To Manage Inventories</h2>
+     <div onSubmit={handleSubmit} className="registration w-50 mx-auto mt-5 ">
+       <h4 className="text-primary">Please Login To Manage Inventories</h4>
        <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
