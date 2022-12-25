@@ -6,7 +6,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const[users,setUsers] = useState([]);
     useEffect(() => {
-        fetch('https://protected-sands-09387.herokuapp.com/user')
+        fetch('https://gadget-arena-server-production.up.railway.app')
         .then(res => res.json())
         .then(data => { 
             setUsers(data);

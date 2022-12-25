@@ -17,7 +17,7 @@ const AddItem = () => {
         
         const user = {name,price,email,supplier,quantity,img,info};
 
-        fetch('https://protected-sands-09387.herokuapp.com/user',{
+        fetch('https://gadget-arena-server-production.up.railway.app',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

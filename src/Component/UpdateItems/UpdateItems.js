@@ -12,7 +12,7 @@ const UpdateItems = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    const url = `https://protected-sands-09387.herokuapp.com/user/${id}`;
+    const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data))
@@ -23,7 +23,7 @@ const UpdateItems = () => {
   const restock = (event) => {
     event.preventDefault();
     const restock = parseInt(event.target.restock.value);
-    const url = `https://protected-sands-09387.herokuapp.com/user/${id}`;
+    const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -43,7 +43,7 @@ const UpdateItems = () => {
   };
   
   const deliver = (event) => {
-    const url = `https://protected-sands-09387.herokuapp.com/user/${id}`;
+    const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -73,7 +73,7 @@ const UpdateItems = () => {
     const updatedItem = { name,img, price, email, supplier, quantity,info };
 
     // send data to the server
-    const url = `https://protected-sands-09387.herokuapp.com/user/${id}`;
+    const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

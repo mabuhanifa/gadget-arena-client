@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import { auth } from '../../firebase.init';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { auth } from '../../firebase.init';
 
 const ManageInventories = () => {
     const[user]= useAuthState(auth);
     const [loading, setLoading] = useState(true);
     const[users,setUsers] = useState([]);
     useEffect(() => {
-        fetch('https://protected-sands-09387.herokuapp.com/user')
+        fetch('https://gadget-arena-server-production.up.railway.app')
         .then(res => res.json())
         .then(data => { 
             setUsers(data);
@@ -21,7 +21,7 @@ const ManageInventories = () => {
     const deleteItem = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this item?');
         if(proceed){
-            const url = `https://protected-sands-09387.herokuapp.com/user/${id}`;
+            const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
