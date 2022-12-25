@@ -2,28 +2,24 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import "./UpdateItems.css";
-
-
 
 const UpdateItems = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
+    const url = `https://gadget-arena-server-production.up.railway.app/user/${id}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setItem(data))
-  }, [item,id]);
-
-
+      .then((data) => setItem(data));
+  }, [item, id]);
 
   const restock = (event) => {
     event.preventDefault();
     const restock = parseInt(event.target.restock.value);
-    const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
+    const url = `https://gadget-arena-server-production.up.railway.app/user/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -41,7 +37,7 @@ const UpdateItems = () => {
     });
     event.target.reset();
   };
-  
+
   const deliver = (event) => {
     const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
     fetch(url, {
@@ -70,7 +66,7 @@ const UpdateItems = () => {
     const info = event.target.info.value;
     const quantity = event.target.quantity.value;
 
-    const updatedItem = { name,img, price, email, supplier, quantity,info };
+    const updatedItem = { name, img, price, email, supplier, quantity, info };
 
     // send data to the server
     const url = `https://gadget-arena-server-production.up.railway.app/${id}`;
@@ -89,57 +85,61 @@ const UpdateItems = () => {
       });
   };
   return (
-      <div className="about container-lg d-flex">
-        <div className="p_info ">
-          <h3 className="ms-5">Deliver or Restock Item</h3>
-        <div className='d_items' key={item._id}>
-
-                 <img className='d_img' src={item.img} alt="" />   
-                <div className='d-flex-column'>
-                <h4>Product Name : {item.name}</h4>
-                <p>Info : {item.info}</p>
-                <p>Price : {item.price}</p>
-                <p>Stock Quantity : {item.quantity}</p>
-                <p>Brand : {item.supplier} </p>
-                </div>
-                <button className="d-btn" onClick={deliver}> Deliver </button>
-        <br />
-      <form className="restock" onSubmit={restock}>
-      <input type="number" name='restock' placeholder='Amount' required/>
+    <div className="about container-lg d-flex">
+      <div className="p_info ">
+        <h3 className="ms-5">Deliver or Restock Item</h3>
+        <div className="d_items" key={item._id}>
+          <img className="d_img" src={item.img} alt="" />
+          <div className="d-flex-column">
+            <h4>Product Name : {item.name}</h4>
+            <p>Info : {item.info}</p>
+            <p>Price : {item.price}</p>
+            <p>Stock Quantity : {item.quantity}</p>
+            <p>Brand : {item.supplier} </p>
+          </div>
+          <button className="d-btn" onClick={deliver}>
+            {" "}
+            Deliver{" "}
+          </button>
+          <br />
+          <form className="restock" onSubmit={restock}>
+            <input type="number" name="restock" placeholder="Amount" required />
             <br />
-        <input className="i-btn" type="submit" value="Restock" />
-      </form>
-
-                </div>
-        
+            <input className="i-btn" type="submit" value="Restock" />
+          </form>
         </div>
-
-
-        {/* ----------------Update Form--------------------- */}
-
-        <div className="d-block f_info ">
-      <h2 className="text-center mb-5">Update Whole Item </h2>
-      <form className="update-form " onSubmit={UpdateItem}>
-      <input type="text" name='name' placeholder='Name' required/>
-            <br />
-            <input type="number" name='price' placeholder='Price' required/>
-            <br />
-            <input type="number" name='quantity' placeholder='Quantity' required/>
-            <br />
-            <input type="email" name='email' placeholder='Email' required/>
-            <br />
-            <input type="text" name='supplier' placeholder='Supplier' required/>
-            <br />
-            <input type="text" name='info' placeholder='Info' required/>
-            <br />
-            <input type="text" name='img' placeholder='Image' required/>
-            <br />
-            
-        <input className="i-btn" type="submit" value="Update User" />
-      </form>
-    </div>
-    <ToastContainer />
       </div>
+
+      {/* ----------------Update Form--------------------- */}
+
+      <div className="d-block f_info ">
+        <h2 className="text-center mb-5">Update Whole Item </h2>
+        <form className="update-form " onSubmit={UpdateItem}>
+          <input type="text" name="name" placeholder="Name" required />
+          <br />
+          <input type="number" name="price" placeholder="Price" required />
+          <br />
+          <input
+            type="number"
+            name="quantity"
+            placeholder="Quantity"
+            required
+          />
+          <br />
+          <input type="email" name="email" placeholder="Email" required />
+          <br />
+          <input type="text" name="supplier" placeholder="Supplier" required />
+          <br />
+          <input type="text" name="info" placeholder="Info" required />
+          <br />
+          <input type="text" name="img" placeholder="Image" required />
+          <br />
+
+          <input className="i-btn" type="submit" value="Update User" />
+        </form>
+      </div>
+      <ToastContainer />
+    </div>
   );
 };
 
