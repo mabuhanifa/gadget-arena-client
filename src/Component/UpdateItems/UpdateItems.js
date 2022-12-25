@@ -16,7 +16,7 @@ const UpdateItems = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data))
-  }, [item]);
+  }, [item,id]);
 
 
 
