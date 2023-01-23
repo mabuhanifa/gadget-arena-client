@@ -5,7 +5,7 @@ const useItems = () =>{
     const [Items, setItems] = useState([]);
 
     useEffect( () =>{
-        fetch('https://gadget-arena-server-production.up.railway.app')
+        fetch('https://gadget-arena.onrender.com')
         .then(res => res.json())
         .then(data => setItems(data));
     },[])

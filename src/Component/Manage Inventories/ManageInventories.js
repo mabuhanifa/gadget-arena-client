@@ -11,7 +11,7 @@ const ManageInventories = () => {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("https://gadget-arena-server-production.up.railway.app/user")
+    fetch("https://gadget-arena.onrender.com/user")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -23,7 +23,7 @@ const ManageInventories = () => {
       "Are you sure you want to delete this item?"
     );
     if (proceed) {
-      const url = `https://gadget-arena-server-production.up.railway.app/user/${id}`;
+      const url = `https://gadget-arena.onrender.com/user/${id}`;
       fetch(url, {
         method: "DELETE",
       })

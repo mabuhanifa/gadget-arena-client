@@ -17,7 +17,7 @@ const AddItem = () => {
         
         const user = {name,price,email,supplier,quantity,img,info};
 
-        fetch('https://gadget-arena-server-production.up.railway.app/user',{
+        fetch('https://gadget-arena.onrender.com/user',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

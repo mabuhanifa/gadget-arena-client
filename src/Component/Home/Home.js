@@ -6,7 +6,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const[users,setUsers] = useState([]);
     useEffect(() => {
-        fetch('https://gadget-arena-server-production.up.railway.app/user')
+        fetch('https://gadget-arena.onrender.com/user')
         .then(res => res.json())
         .then(data => { 
             setUsers(data);
